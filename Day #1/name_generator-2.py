@@ -1,0 +1,1 @@
+print("Your name could be " + input("What city were you born?\n" + input("What's your pet's name? \n")))
