@@ -7,21 +7,31 @@ RIGHT = 0
 
 
 class Snake:
+    
     def __init__(self):
         self.turtles = []
         self.x_axis = 0
         self.y_axis = 0
+        self.snake_length = 3
         self.create_snake()
         self.head = self.turtles[0]
 
     def create_snake(self):
-        for _ in range(3):
+        for seg in range(self.snake_length):
+            self.add_segment()
+
+    def add_segment(self, position=None):
+        if position is None:
             position = (self.x_axis, self.y_axis)
-            self.turtles.append(Turtle('square'))
-            self.turtles[_].penup()
-            self.turtles[_].color('white')
-            self.turtles[_].goto(position)
             self.x_axis -= MOVE_DISTANCE
+        new_turtle = Turtle('square')
+        new_turtle.penup()
+        new_turtle.color('white')
+        new_turtle.goto(position)
+        self.turtles.append(new_turtle)
+
+    def extend(self):
+        self.add_segment(self.turtles[-1].position())
 
     def move(self):
         for turtle in range(len(self.turtles) - 1, 0, -1):
