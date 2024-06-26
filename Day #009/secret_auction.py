@@ -1,3 +1,4 @@
+# Secret Auction Project
 from replit import clear
 from art import logo
 
