@@ -1,7 +1,5 @@
+# Calculator Project
 from art import logo
-
-#Calculator
-# print(logo)
 
 #Add function
 def add(a, b):
