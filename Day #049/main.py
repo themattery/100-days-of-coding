@@ -29,23 +29,23 @@ password_input = driver.find_element(By.ID, value="password")
 password_input.send_keys(PASSWORD, Keys.ENTER)
 
 time.sleep(10)
-close_popup = driver.find_element(By.ID, value="ember44")
+close_popup = driver.find_element(By.ID, value='ember45')
 close_popup.click()
 
 time.sleep(2)
-save_job_button = driver.find_element(By.XPATH, value='//*[@id="main"]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/div[5]/div/button')
-save_job_button.click()
+jobs = driver.find_elements(By.CSS_SELECTOR, value="ul.scaffold-layout__list-container li.ember-view strong")
 
-time.sleep(2)
-for _ in range(6):
-    save_job_button.send_keys(Keys.PAGE_DOWN)
+jobs[0].click()
+for i in range(1, len(jobs)):
+    time.sleep(2)
+    save_job_button = driver.find_element(By.XPATH, value='//*[@id="main"]/div/div[2]/div[2]/div/div[2]/div/div[1]/div/div[1]/div/div[1]/div[1]/div[5]/div/button')
+    save_job_button.click()
 
-time.sleep(2)
-follow_company = driver.find_element(By.CSS_SELECTOR, value="button.follow")
-follow_company.click()
+    time.sleep(2)
+    for _ in range(6):
+        save_job_button.send_keys(Keys.PAGE_DOWN)
 
-time.sleep(2)
-jobs = driver.find_elements(By.CSS_SELECTOR, value="ul.scaffold-layout__list-container li.ember-view")
-
-for job in jobs:
-    print(job.text)
+    time.sleep(2)
+    follow_company = driver.find_element(By.CSS_SELECTOR, value="button.follow")
+    follow_company.click()
+    jobs[i+1].click()
