@@ -3,10 +3,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import ElementClickInterceptedException
 from time import sleep
+import os
+from dotenv import load_dotenv
 
-TARGET_ACCOUNT = "kabooktv"
-USERNAME = "ozfordfella"
-PASSWORD = "matheus10b#aurora"
+load_dotenv()
+
+TARGET_ACCOUNT = os.getenv("TARGET_ACCOUNT")
+USERNAME = os.getenv("USERNAME")
+PASSWORD = os.getenv("PASSWORD")
 
 
 class InstaFollower:
